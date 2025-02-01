@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	
 
 	_ "github.com/go-sql-driver/mysql" // Asegúrate de importar el controlador MySQL
 )
@@ -34,10 +33,10 @@ func ConnectToDB() (*sql.DB, error) {
 	}
 
 	// Configurar el pool de conexiones
-	db.SetMaxOpenConns(25)         // Máximo número de conexiones abiertas
-	db.SetMaxIdleConns(10)         // Máximo número de conexiones inactivas
-	db.SetConnMaxIdleTime(10)      // Tiempo máximo de inactividad en segundos
-	db.SetConnMaxLifetime(5 * 60)  // Vida máxima de una conexión en segundos
+	db.SetMaxOpenConns(25)        // Máximo número de conexiones abiertas
+	db.SetMaxIdleConns(10)        // Máximo número de conexiones inactivas
+	db.SetConnMaxIdleTime(10)     // Tiempo máximo de inactividad en segundos
+	db.SetConnMaxLifetime(5 * 60) // Vida máxima de una conexión en segundos
 
 	fmt.Println("Conexión exitosa a la base de datos")
 	return db, nil
