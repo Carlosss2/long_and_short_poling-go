@@ -112,3 +112,14 @@ func (mysql *MySQL) UpdateProduct(id int32, name string, price float32) error {
 	fmt.Println("Producto actualizado con éxito")
 	return nil
 }
+
+
+func (m *MySQL) GetProductCount() (int, error) {
+    var count int
+    query := "SELECT COUNT(*) FROM products" // Ajusta la consulta según tu esquema de base de datos
+    err := m.DB.QueryRow(query).Scan(&count)
+    if err != nil {
+        return 0, err
+    }
+    return count, nil
+}
