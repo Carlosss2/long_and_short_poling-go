@@ -15,9 +15,9 @@ func Routes(router *gin.Engine) {
 	deleteProduct := dependencies.GetDeleteController().DeleteProduct
 	updateProduct := dependencies.GetUpdateController().Update
 
-	longPolling := dependencies.GetProductPollingController().LongPolling
+	longPolling := dependencies.GetProductPollingController().ShortPolling
 
-	routes.GET("/long-polling", longPolling) // Long Polling para productos
+	routes.GET("/polling", longPolling) // short Polling para productos
 
 	routes.POST("/", createProduct)        // POST /products
 	routes.GET("/", viewProduct)          // GET /products
