@@ -59,3 +59,7 @@ func GetUpdateController()*controllers.UpdateProductController{
 	caseUpdate := application.NewUpdateProduct(&mySQL)
 	return controllers.NewUpdateProductController(caseUpdate)
 }
+
+func GetProductPollingController() *controllers.ProductPollingController {
+	return controllers.NewProductPollingController(&mySQL)
+}

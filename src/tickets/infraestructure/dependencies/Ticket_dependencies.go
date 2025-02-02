@@ -39,7 +39,7 @@ func CloseDB() {
 }
 func GetCreateTicketController()*controllers.CreateTicketController{
 	caseCreateTicket := application.NewCreateTicket(&mySQL)
-	return controllers.NewCreateTicketController(caseCreateTicket)
+	return controllers.NewCreateTicketController(caseCreateTicket,&mySQL)
 }
 
 func GetGetAllTicketController()*controllers.GetAllTicketController{
@@ -55,4 +55,8 @@ func GetDeleteTicketController()*controllers.DeleteTicketController{
 func GetUpdateTicketController()*controllers.UpdateTicketController{
 	caseUpdateTicket := application.NewUpdateTicket(&mySQL)
 	return controllers.NewUpdateTicketController(caseUpdateTicket)
+}
+
+func GetTicketPollingController() *controllers.TicketPollingController {
+	return controllers.NewTicketPollingController(&mySQL)
 }

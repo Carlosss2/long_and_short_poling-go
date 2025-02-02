@@ -29,7 +29,7 @@ type CreateProductController struct {
 		 	c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		 	return
 		 }
-	
+		 application.NotifyProductUpdate() // Notificar a los listeners
 		c.JSON(http.StatusCreated, gin.H{"message": "producto registrado con exito"})
 	
 

@@ -14,6 +14,11 @@ func Routes(router *gin.Engine){
 	deleteTickets := dependencies.GetDeleteTicketController().Delete
 	updateTickets := dependencies.GetUpdateTicketController().Update
 
+	shortPolling := dependencies.GetTicketPollingController().ShortPolling
+	longPolling := dependencies.GetTicketPollingController().LongPolling
+
+	routes.GET("/polling", shortPolling)         // Short Polling
+	routes.GET("/long-polling", longPolling)
 
 	routes.POST("/",createTicket)
 	routes.GET("/",getAllTickets)

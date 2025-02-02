@@ -13,3 +13,4 @@ func NewCreateTicket(db domain.ITicket) *CreateTicket{
 func (uc *CreateTicket) Execute(client string, total string) error{
 	return uc.db.Save(client,total)
 }
+
