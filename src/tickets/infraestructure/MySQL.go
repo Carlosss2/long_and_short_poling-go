@@ -87,3 +87,13 @@ func (mysql *MySQL) Update(id int32,client string,total string) error{
 	fmt.Println("Ticket actualizado")
 	return nil
 }
+
+func (m *MySQL) GetTicketCount() (int, error) {
+    var count int
+    query := "SELECT COUNT(*) FROM tickets" // Ajusta la consulta según tu esquema de base de datos
+    err := m.DB.QueryRow(query).Scan(&count)
+    if err != nil {
+        return 0, err
+    }
+    return count, nil
+}
